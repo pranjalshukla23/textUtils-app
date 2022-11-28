@@ -50,6 +50,7 @@ function App() {
         <div className="container my-3">
           <Routes>
             <Route
+              index
               path="/"
               element={
                 <TextForm
@@ -59,9 +60,8 @@ function App() {
                 />
               }
             />
-            <Route path="/about" element={<About />} />} />
+            <Route path="/about" element={<About mode={mode} />} />} />
           </Routes>
-          <TextForm />
         </div>
       </Router>
     </>

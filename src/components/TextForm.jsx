@@ -51,13 +51,13 @@ export const TextForm = (props) => {
             ></textarea>
           </div>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>
           Convert To Lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={clearText}>
+        <button className="btn btn-primary mx-2 my-2" onClick={clearText}>
           Clear text
         </button>
       </div>
@@ -69,9 +69,22 @@ export const TextForm = (props) => {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.trim().split(" ").length} words, {text.length} characters
+          {
+            text
+              .trim()
+              .split(" ")
+              .filter((element) => element.length !== 0).length
+          }{" "}
+          words, {text.length} characters
         </p>
-        <p>{0.006 * text.split(" ").length} Minutes read</p>
+        <p>
+          {0.006 *
+            text
+              .trim()
+              .split(" ")
+              .filter((element) => element.length !== 0).length}{" "}
+          Minutes read
+        </p>
         <h2>Preview</h2>
         <p>
           {text.length > 0
